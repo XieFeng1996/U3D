@@ -1,0 +1,13 @@
+﻿<Properties StartupConfiguration="{9E3BC843-B354-4992-BE9B-5D65F71B815B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Sprites/NGUIButtonClick.cs">
+    <Files>
+      <File FileName="Assets/Sprites/NGUIButtonClick.cs" Line="15" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
