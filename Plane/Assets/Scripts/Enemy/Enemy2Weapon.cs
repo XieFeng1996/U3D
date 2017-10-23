@@ -30,7 +30,7 @@ public class Enemy2Weapon : MonoBehaviour {
 
     void changeWeapon()
     {
-        int wepen = Random.Range(5, 6);
+        int wepen = Random.Range(0, 6);
 
         switch (wepen)
         {
