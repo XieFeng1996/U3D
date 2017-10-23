@@ -13,6 +13,8 @@ public class HeroMainWeapon : MonoBehaviour
     private GunType weapon = GunType.gun_Normal;   //当前武器的种类(状态)
     public HeroMainGun gun_Normal, gun_DoubleBullet, gun_ThreeBullet;  // 用来获取三个发射子弹的位置的变量
 
+    public AudioClip getPropMusic;
+
 	// Use this for initialization
 	void Start () {
         resetDoubleWeaponTime = doubleGunTime;  //把复位时间设置为双枪存在的时间(这里是10s)
@@ -104,6 +106,8 @@ public class HeroMainWeapon : MonoBehaviour
                 bombManager._instance.addAbomb();
                 Destroy(other.gameObject);
             }
+
+            AudioSource.PlayClipAtPoint(getPropMusic, transform.localPosition);
         }
     }
 }

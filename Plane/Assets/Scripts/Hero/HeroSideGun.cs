@@ -31,5 +31,7 @@ public class HeroSideGun : GunBase
             Instantiate(bullet, firePointRight.transform.position, firePointRight.transform.rotation);
             //初始化一个上面获得的物体，位置为当前脚本所在的物体上的位置，角度为自身角度
         }
+
+        AudioSource.PlayClipAtPoint(bulletMusic, transform.localPosition);
     }
 }

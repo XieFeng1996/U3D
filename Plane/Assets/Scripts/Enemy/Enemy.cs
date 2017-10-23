@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
     public float speed;
     public int score;
     public bool isDead = false;
+    public AudioClip destoryMusic;
 
     Animator anim;  //存放动画组件
 
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour {
         {
             isDead = true;
             anim.SetBool("Dead", true);   //开始播放爆炸动画
+            AudioSource.PlayClipAtPoint(destoryMusic, transform.localPosition);
             GameMananger._instance.addScore(score); 
         }
         else

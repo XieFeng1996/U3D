@@ -9,7 +9,7 @@ public class EnemyGunSuper : GunBase{
 
     void Start()
     {
-        bulletAngle = 360.0f / bulletCount;//子弹角度=360°/数量
+        bulletAngle = 360.0f / bulletCount;
     }
 
     public override void Fire()

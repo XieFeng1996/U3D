@@ -8,9 +8,7 @@ public enum BulletType
     EnemyBullet,
 }
 
-public class Bullet : MonoBehaviour
-
-{
+public class Bullet : MonoBehaviour {
     public float speed = 10;
     public BulletType bulletType = BulletType.HeroBullet;
 
@@ -31,6 +29,10 @@ public class Bullet : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
         //transform.Translate(Vector3.up * speed * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space) && bombManager._instance.count > 0)
+        {
+            Destroy(gameObject);
+        }
 	}
 
     void OnBecameInvisible()
@@ -39,21 +41,21 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D other)  //每次碰撞调用此方法
+    void OnTriggerEnter2D(Collider2D other)  //每次碰撞自动调用次方法
     {
         if (bulletType == BulletType.HeroBullet)
         {
-            if (other.gameObject.tag == "Enemy") //若打中的是敌机
+            if (other.gameObject.tag == "Enemy" && !other.GetComponent<Enemy>().isDead) //如果打中的是敌机
             {
-                other.gameObject.SendMessage("Behit");  //则调用敌机身上的Behit方法
+                other.gameObject.SendMessage("Behit");  //则调用敌机身上的Behit 方法
                 Destroy(this.gameObject); //如果碰撞到了则销毁此物体
             }
         }
         else
         {
-            if (other.gameObject.tag == "Hero") //如果打中的是敌机
+            if (other.gameObject.tag == "Hero" && !other.GetComponent<HeroHealth>().isDead) //如果打中的是敌机
             {
-                other.gameObject.SendMessage("Behit");  //则调用敌机身上的Behit方法
+                other.gameObject.SendMessage("Behit");  //则调用敌机身上的Behit 方法
                 Destroy(this.gameObject); //如果碰撞到了则销毁此物体
             }
         }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class GunBase : MonoBehaviour
 {
     public GameObject bullet;
+    public AudioClip bulletMusic;
+
     public float startFireTime = 0.2f; //发射频率
     public float FireRate = 0.2f; //发射频率
     public int dartleCount = 1;

@@ -12,7 +12,6 @@ public enum GunType
 public class HeroMainGun : GunBase
 {
     public Transform[] firePoint;
-    public AudioClip bulletMusic;
 
     // Update is called once per frame
     public override void Fire()

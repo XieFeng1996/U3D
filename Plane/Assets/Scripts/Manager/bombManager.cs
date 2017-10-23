@@ -7,6 +7,7 @@ public class bombManager : MonoBehaviour {
     public GameObject boomIcon;  //炸弹的图标
     public Text boomNumber;    //炸弹的数目(用来显示)
     public int count = 0;     //炸弹的数量(用来运算)
+    public AudioClip useBombMusic;
     public static  bombManager _instance;  //单例初始化
 	// Use this for initialization
 	void Start () {
@@ -33,6 +34,7 @@ public class bombManager : MonoBehaviour {
                 boomIcon.SetActive(false);  //则不显示
                 boomNumber.gameObject.SetActive(false);
             }
+            AudioSource.PlayClipAtPoint(useBombMusic, transform.localPosition);
         }
         
     }

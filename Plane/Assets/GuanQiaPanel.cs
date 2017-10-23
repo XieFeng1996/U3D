@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GuanQiaPanel : MonoBehaviour
 {
     public GameObject guanQiaPanel;
@@ -19,8 +20,7 @@ public class GuanQiaPanel : MonoBehaviour
     public void Onclick_Begin()
     {
 
-        GamePanel.SetActive(true);
-        guanQiaPanel.SetActive(false);
+        SceneManager.LoadScene("02");
     }
 
 

@@ -1,7 +1,7 @@
-//----------------------------------------------
+//-------------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
-//----------------------------------------------
+// Copyright © 2011-2017 Tasharen Entertainment Inc
+//-------------------------------------------------
 
 using UnityEngine;
 
@@ -118,6 +118,7 @@ public class UIAnchor : MonoBehaviour
 	void Update ()
 	{
 		if (mAnim != null && mAnim.enabled && mAnim.isPlaying) return;
+		if (mTrans == null) return;
 
 		bool useCamera = false;
 

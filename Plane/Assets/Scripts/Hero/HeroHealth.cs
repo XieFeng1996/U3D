@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class HeroHealth : MonoBehaviour {
     public float life;
     public bool isDead = false;
+    public AudioClip destoryMusic;
 
     private Animator anim;
 
@@ -30,6 +31,7 @@ public class HeroHealth : MonoBehaviour {
         {
             isDead = true;
             anim.SetBool("Dead", true);   //开始播放爆炸动画
+            AudioSource.PlayClipAtPoint(destoryMusic, transform.localPosition);
         }
     }
 
@@ -40,6 +42,7 @@ public class HeroHealth : MonoBehaviour {
             if (!other.GetComponent<Enemy>().isDead)
             {
                 anim.SetBool("Dead", true);
+                AudioSource.PlayClipAtPoint(destoryMusic, transform.localPosition);
                 //Invoke("Dead", 0.4f);
             }
         }
