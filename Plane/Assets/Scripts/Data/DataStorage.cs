@@ -9,6 +9,10 @@ public class DataStorage : MonoBehaviour {
     */
 	//库ID
     private static int libraryId = 1;
+    //是否第一次存储
+    private int isFirstDataStorage = 1; //0为没有,1表示写入数据
+    //玩家选择的游戏难度
+    private int playChangeDifficuty = 0; //玩家选择的难度，默认为0，即简单难度
                   //飞机数据
 	//飞机1ID
     private static int airplaneId1 = 1;
@@ -185,25 +189,6 @@ public class DataStorage : MonoBehaviour {
 	//击杀获得金币
 	private static int killGold2 = 50;
 
-	//高级怪
-	private static int mobsId7 = 107;
-	//小怪名
-    private static string mobsName7 = "高级怪";
-	//小怪生命（初级难度）
-	private static int mobsLife1_107 = 80;
-	//小怪伤害（初级难度）
-	private static int mobsHurt1_107 = 40;
-	//小怪生命（中级难度）
-	private static int mobsLife2_107 = 140;
-	//小怪伤害（中级难度）
-	private static int mobsHurt2_107 = 60;
-	//小怪生命（高级难度）
-	private static int mobsLife3_107 = 200;
-	//小怪伤害（高级难度）
-	private static int mobsHurt3_107 = 80;
-	//击杀获得金币
-	private static int killGold3 = 80;
-
     //BOSS1
     private static int mobsId10 = 110;
     //BOSS1名字
@@ -260,11 +245,13 @@ public class DataStorage : MonoBehaviour {
 	private static int mobsHurt3_112 = 200;
 	//击杀获得金币
 	private static int killGold6 = 1000;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    public void initDataStorage () {
 		//保存数据到playerPrefes中
         PlayerPrefs.SetInt("libraryId",libraryId);   //ID
-        PlayerPrefs.SetInt("airplaneId1",airplaneId1);   //飞机1ID
+        PlayerPrefs.SetInt("isFirstDataStorage",isFirstDataStorage);   //是否初始化
+        PlayerPrefs.SetInt("playChangeDifficuty",playChangeDifficuty);   //玩家选择的游戏难度
+		PlayerPrefs.SetInt("airplaneId1",airplaneId1);   //飞机1ID
         PlayerPrefs.SetString("airplaneName1",airplaneName1);//飞机1名字
         PlayerPrefs.SetInt("airplaneLife1",airplaneLife1);  //飞机1生命
         PlayerPrefs.SetInt("airplaneId2",airplaneId2);   //飞机2ID
@@ -353,16 +340,6 @@ public class DataStorage : MonoBehaviour {
         PlayerPrefs.SetInt("mobsHurt3_104",mobsHurt3_104);//中级怪高级难度下伤害
         PlayerPrefs.SetInt("killGold2",killGold2);//中级怪击杀获得金币
 
-		PlayerPrefs.SetInt("mobsId7",mobsId7);//高级怪ID
-        PlayerPrefs.SetString("mobsName7",mobsName7);//高级怪名字
-		PlayerPrefs.SetInt("mobsLife1_107",mobsLife1_107);//高级怪初级难度下生命
-		PlayerPrefs.SetInt("mobsHurt1_107",mobsHurt1_107);//高级怪初级难度下伤害
-		PlayerPrefs.SetInt("mobsLife2_107",mobsLife2_107);//高级怪中级难度下生命
-		PlayerPrefs.SetInt("mobsHurt2_107",mobsHurt2_107);//高级怪中级难度下伤害
-		PlayerPrefs.SetInt("mobsLife3_107",mobsLife3_107);//高级怪高级难度下生命
-		PlayerPrefs.SetInt("mobsHurt3_107",mobsHurt3_107);//高级怪高级难度下伤害
-        PlayerPrefs.SetInt("killGold3",killGold3);//高级怪击杀获得金币
-
 		PlayerPrefs.SetInt("mobsId10",mobsId10);//BOSS1ID
         PlayerPrefs.SetString("mobsName10",mobsName10);//BOSS1名字
         PlayerPrefs.SetInt("mobsLife1_110",mobsLife1_110);//BOSS1初级难度下生命
@@ -395,5 +372,31 @@ public class DataStorage : MonoBehaviour {
 
         print("数据储存完成");
 	}
-	
+    public void returnInitData(){     //重置数据函数
+        isFirstDataStorage = 0;
+        initDataStorage();
+    }
+    public void changeDifficuty(){    //修改难度
+        int changeType = PlayerPrefs.GetInt("playChangeDifficuty",0);          //获取玩家的游戏难度
+		 /*
+		  * 1.在这里写你的按钮监听事件,修改int的值
+		  * 2.int值说明:
+		  *   简单 -- 0
+		  *   中等 -- 1
+		  *   苦难 -- 2
+         */
+        //修改玩家的游戏难度
+        PlayerPrefs.SetInt("playChangeDifficuty",changeType);
+	}
+    void Start(){
+        //判断是否需要初始化
+        int isFirst;
+        isFirst = PlayerPrefs.GetInt("isFirstDataStorage", 0);
+        print("isFirst = " + isFirst);
+        if (isFirst == 0){
+            initDataStorage();
+        }else{
+            print("isFirst = " + isFirst);
+        }
+    }
 }

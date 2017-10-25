@@ -232,10 +232,10 @@
  <HintPath>D:/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/Rui_Cao/Desktop/Plane/Assets/DOTween/DOTween.dll</HintPath>
+ <HintPath>C:/Users/Rui_Cao/Documents/GitHub/U3D/Plane/Assets/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenEditor">
- <HintPath>C:/Users/Rui_Cao/Desktop/Plane/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ <HintPath>C:/Users/Rui_Cao/Documents/GitHub/U3D/Plane/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

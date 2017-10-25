@@ -52,7 +52,6 @@ public class HeroMovement : MonoBehaviour
         float x = pos.x;
         float y = pos.y;
 
-        //效果虽然和下面一样，但移植效果没下面的好
         x = x < screenXMin ? screenXMin : x;    //如果往左移动超出了屏幕最左边(最小值),则把最左边的坐标赋值给x
         x = x > screenXMax ? screenXMax : x;    //同上
         y = y < screenYMin ? screenYMin : y;    //同上

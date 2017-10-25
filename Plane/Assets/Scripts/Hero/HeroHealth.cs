@@ -3,29 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HeroHealth : MonoBehaviour {
-    public float life;
+public class HeroHealth : MonoBehaviour
+{
+    private float life;
     public bool isDead = false;
     public AudioClip destoryMusic;
 
     private Animator anim;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         anim = GetComponent<Animator>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        life = gamedoing._instance.playerAirLife;
+    }
 
-    void Behit()   //被击中时从子弹发过来的消息调用的方法
+    void Behit(int damage)   //被击中时从子弹发过来的消息调用的方法
     {
         if (isDead)
             return;
 
-        life--;  //生命值减1
+        life -= damage;  //生命值减少
 
         if (life <= 0)
         {
@@ -39,11 +37,11 @@ public class HeroHealth : MonoBehaviour {
     {
         if (other.tag == "Enemy")
         {
-            if (!other.GetComponent<Enemy>().isDead)
+            if (!other.GetComponent<EnemyHealth>().isDead)
             {
+                isDead = true;
                 anim.SetBool("Dead", true);
                 AudioSource.PlayClipAtPoint(destoryMusic, transform.localPosition);
-                //Invoke("Dead", 0.4f);
             }
         }
     }
@@ -51,7 +49,6 @@ public class HeroHealth : MonoBehaviour {
     void Dead()
     {
         Destroy(this.gameObject);
-        //GameOver._instance.showScore(GameMananger._instance.score);
         SceneManager.LoadScene("03");
     }
 }

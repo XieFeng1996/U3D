@@ -2,19 +2,17 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class GameOver : MonoBehaviour {
+public class GameOver : MonoBehaviour
+{
     public Text nowScoreText;
     public Text highScoreText;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         showScore();
-	}
-		
-	void Update () {
+    }
 
-	
-	}
     public void showScore()
     {
         int nowScore = GameMananger._instance.score;
@@ -22,9 +20,8 @@ public class GameOver : MonoBehaviour {
         if (nowScore > historyScore)
         {
             PlayerPrefs.SetInt("historyHighScore", nowScore);
-           // highScoreText.text = historyScore + "";
         }
-        highScoreText.text = historyScore + "";
-        this.nowScoreText.text = nowScore + "";
+        highScoreText.text = historyScore.ToString();
+        this.nowScoreText.text = nowScore.ToString();
     }
 }

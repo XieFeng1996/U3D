@@ -11,15 +11,22 @@ public class EnemySpawn : MonoBehaviour {
         public float creatRate;   //飞机产生频率
     }
 
-    public Plane[] enemyPlane;    //储存敌机
+    public Plane smallPlane;
+    public Plane middlePlane;
+    public GameObject bossPlane;
+
+    private Coroutine smallPlaneCoroutine;
+    private Coroutine middlePlaneCoroutine;
+
+    private int bringNum = 0;
 
 	// Use this for initialization
-	void Start () {
-        for (int i = 0; i < enemyPlane.Length; i++)
-        {
-            StartCoroutine(creatPlane(enemyPlane[i]));
-        }
-	}
+    void Start()
+    {
+        smallPlaneCoroutine = StartCoroutine(creatPlane(smallPlane));
+
+        middlePlaneCoroutine = StartCoroutine(creatPlane(middlePlane));
+    }
 
     IEnumerator creatPlane(Plane m_Plane)
     {
@@ -42,5 +49,19 @@ public class EnemySpawn : MonoBehaviour {
         float xMin = -Screen.width / 200.0f + spriteWeight / 2.0f;
         float xMax = Screen.width /200.0f - spriteWeight / 2.0f;
         Instantiate(plane, new Vector3(Random.Range(xMin, xMax),transform.position.y,0),Quaternion.identity);  //生成飞机
+
+        bringNum++;
+
+        if (bringNum == gamedoing._instance.bossAppearPlace)
+        {
+            creatEnemyPlane(bossPlane);
+        }
+
+        if (bringNum == gamedoing._instance.monsterCap)
+        {
+            StopCoroutine(smallPlaneCoroutine);
+
+            StopCoroutine(middlePlaneCoroutine);
+        }
     }
 }

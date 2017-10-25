@@ -4,22 +4,16 @@ using UnityEngine;
 
 public enum PropType  //道具的枚举类型
 {
-    doubleBullet,  //双子弹补给
-    threeBullet,  //三子弹补给
-    Side_Weapon,
-    boom,  //炸弹
+    doubleBullet,  //双枪补给
+    threeBullet,  //三枪补给
+    Side_Weapon,  //副武器补给
+    boom,  //炸弹补给
 }
 
 public class Prop : MonoBehaviour {
     public float speed;
 
-    public PropType propType = PropType.doubleBullet;  //默认是子弹补给
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
+    public PropType propType = PropType.doubleBullet;  //默认是双枪补给
 
     // Update is called once per frame
     void Update()
@@ -29,7 +23,7 @@ public class Prop : MonoBehaviour {
 
     void OnBecameInvisible()
     {
-        //飞机超出屏幕边界后销毁子弹
+        //补给超出屏幕边界后销毁补给
         Destroy(gameObject);
     }
 }

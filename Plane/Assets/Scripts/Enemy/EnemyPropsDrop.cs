@@ -25,13 +25,13 @@ public class EnemyPropsDrop : MonoBehaviour {
 
     private void GetNumberFormProbability()
     {
-        int RandomNumber = Random.Range(0, 100);
+        int RandomNumber = Random.Range(0, 1000);
 
         int calculate = 0;
 
         if (m_Props.Length == 0)
         {
-            m_PropNumber = Random.Range(0, m_Props.Length);
+            m_PropNumber = -1;
             return;
         }
 
