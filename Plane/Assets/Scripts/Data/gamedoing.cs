@@ -52,6 +52,7 @@ public class gamedoing : MonoBehaviour
     */
 
 
+
     //根据玩家选择的难度获取对应关卡，对应难度的boss数据
     public void LevelChange(int difficutyType)
     {
@@ -74,6 +75,7 @@ public class gamedoing : MonoBehaviour
                     mobsLife3 = PlayerPrefs.GetInt("mobsLife3_110", 0);
                     mobsHurt3 = PlayerPrefs.GetInt("mobsHurt3_110", 0);
                 }
+                mobsGold3 = PlayerPrefs.GetInt("killGold4", 0);
                 break;
             case 1:        //关卡2
                 if (difficutyType == 0)
@@ -91,6 +93,7 @@ public class gamedoing : MonoBehaviour
                     mobsLife3 = PlayerPrefs.GetInt("mobsLife3_111", 0);
                     mobsHurt3 = PlayerPrefs.GetInt("mobsHurt3_111", 0);
                 }
+                mobsGold3 = PlayerPrefs.GetInt("killGold5", 0);
                 break;
             case 2:        //关卡3
                 if (difficutyType == 0)
@@ -108,6 +111,7 @@ public class gamedoing : MonoBehaviour
                     mobsLife3 = PlayerPrefs.GetInt("mobsLife3_112", 0);
                     mobsHurt3 = PlayerPrefs.GetInt("mobsHurt3_112", 0);
                 }
+                mobsGold3 = PlayerPrefs.GetInt("killGold6", 0);
                 break;
         }
     }
@@ -127,6 +131,7 @@ public class gamedoing : MonoBehaviour
                 mobsLife2 = PlayerPrefs.GetInt("mobsLife1_104", 0);
                 mobsHurt2 = PlayerPrefs.GetInt("mobsHurt1_104", 0);
                 mobsGold2 = PlayerPrefs.GetInt("killGold2", 0);
+
                 break;
             case 1:      //正常难度
                 mobsLife1 = PlayerPrefs.GetInt("mobsLife2_101", 0);
@@ -285,11 +290,132 @@ public class gamedoing : MonoBehaviour
                 break;
         }
     }
+    //评分规则
+    public void gradingRule()
+    {
+        //玩家的生命评分
+        float lifeNumber = 0;
+        //玩家消灭的敌机数量
+        float playerKill = 0;
+        lifeNumber = (float)playerAirLifeInGame / playerAirLife;
+        lifeNumber = lifeNumber * 100;
+        playerKill = (float)playerKillNumber / monsterCap;
+        playerKill = playerKill * 100;
+        //星星数
+        int starNumber = 0;
+        switch (playerDifficuty)
+        {
+            case 0:         //简单的评分规则
+                if (lifeNumber > 80)
+                {
+                    print("简单三星");
+                    starNumber = 3;
+                }
+                else if (lifeNumber >= 60)
+                {
+                    print("简单二星");
+                    starNumber = 2;
+                }
+                else
+                {
+                    print("简单一星");
+                    starNumber = 1;
+                }
+                break;
+            case 1:         //正常的评分规则
+                if (lifeNumber > 90 && playerKill > 80)
+                {
+                    print("中等三星");
+                    starNumber = 3;
+                }
+                else if (lifeNumber > 70 && playerKill > 60)
+                {
+                    print("中等二星");
+                    starNumber = 2;
+                }
+                else
+                {
+                    print("中等一星");
+                    starNumber = 1;
+                }
+                break;
+            case 2:         //困难的评分规则
+                if (lifeNumber >= 85 && playerKill >= 75 && usedPropsNumber < 5)
+                {
+                    print("困难三星");
+                    starNumber = 3;
+                }
+                else if (lifeNumber >= 75 && playerKill >= 60 && usedPropsNumber < 7)
+                {
+                    print("困难二星");
+                    starNumber = 2;
+                }
+                else
+                {
+                    print("困难一星");
+                    starNumber = 1;
+                }
+                break;
+        }
+        //存储到数据中
+        stroageLevelData(starNumber);
+    }
+    public void stroageLevelData(int starNumber)
+    {
+        switch (playerLevelChange)
+        {
+            case 0:       //第一关
+                if (playerDifficuty == 0)
+                { //简单
+                    PlayerPrefs.SetInt("starsNum1_2", starNumber);//关卡1初级难度星星数
+                }
+                else if (playerDifficuty == 1)
+                {//正常
+                    PlayerPrefs.SetInt("starsNum1_4", starNumber);//关卡1正常难度星星数
+                }
+                else
+                {   //困难
+                    PlayerPrefs.SetInt("starsNum1_6", starNumber);//关卡1困难难度星星数
+                }
+                break;
+            case 1:       //第二关
+                if (playerDifficuty == 0)
+                { //简单
+                    PlayerPrefs.SetInt("starsNum2_2", starNumber);//关卡2初级难度星星数
+                }
+                else if (playerDifficuty == 1)
+                {//正常
+                    PlayerPrefs.SetInt("starsNum2_4", starNumber);//关卡2正常难度星星数
+                }
+                else
+                {   //困难
+                    PlayerPrefs.SetInt("starsNum2_6", starNumber);//关卡2困难难度星星数
+                }
+                break;
+            case 2:       //第三关
+                if (playerDifficuty == 0)
+                { //简单
+                    PlayerPrefs.SetInt("starsNum3_2", starNumber);//关卡3初级难度星星数
+                }
+                else if (playerDifficuty == 1)
+                {//正常
+                    PlayerPrefs.SetInt("starsNum3_4", starNumber);//关卡3正常难度星星数
+                }
+                else
+                {   //困难
+                    PlayerPrefs.SetInt("starsNum3_6", starNumber);//关卡3困难难度星星数
+                }
+                break;
+        }
+    }
 
     void Awake()
     {
         _instance = this;
+    }
 
+    void Start()
+    {
         //获取怪物属性
         playerchangeDifficutyType();
         //获得玩家的飞机和飞机伤害
@@ -298,12 +424,7 @@ public class gamedoing : MonoBehaviour
         //设置关卡数据
         setMobsShowing();
 
-    }
-
-    // Update is called once per frame
-
-    void Update()
-    {
-
+        //评分规则(在玩家击杀BOSS后调用此函数)
+        //gradingRule(playerDifficuty);
     }
 }

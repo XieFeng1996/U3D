@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum EnemyType  //飞机的枚举类型
 {
@@ -78,7 +79,15 @@ public class EnemyHealth : MonoBehaviour
     {
         Destroy(this.gameObject);
 
-        GetComponent<EnemyPropsDrop>().PropDrop();
+        if (enemyType != EnemyType.bossEnemy)
+        {
+            GetComponent<EnemyPropsDrop>().PropDrop();
+        }
+        else
+        {
+            gamedoing._instance.gradingRule();
+            SceneManager.LoadScene("03");
+        }
     }
 
     void Hited()

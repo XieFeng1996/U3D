@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HeroHealth : MonoBehaviour
 {
-    private float life;
+    private int life;
     public bool isDead = false;
     public AudioClip destoryMusic;
 
@@ -24,6 +24,7 @@ public class HeroHealth : MonoBehaviour
             return;
 
         life -= damage;  //生命值减少
+        gamedoing._instance.playerAirLifeInGame = life;
 
         if (life <= 0)
         {
