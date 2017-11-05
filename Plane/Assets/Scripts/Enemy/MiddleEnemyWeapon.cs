@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class MiddleEnemyWeapon : MonoBehaviour
 {
-
     public GunBase gun_Normal, gun_Super;
+    public bool isFire = false;
+    private float moveHeight;
 
     // Use this for initialization
     void Start()
     {
-        changeWeapon();
+        moveHeight = Screen.height / 200.0f;
+    }
+
+    void Update()
+    {
+        if (isFire)
+            return;
+
+        if (transform.position.y < moveHeight)
+        {
+            changeWeapon();
+            isFire = true;
+        }
     }
 
     void changeWeapon()

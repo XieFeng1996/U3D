@@ -7,6 +7,7 @@ public enum PropType  //道具的枚举类型
     doubleBullet,  //双枪补给
     threeBullet,  //三枪补给
     Side_Weapon,  //副武器补给
+    Shield,  //防护罩补给
     boom,  //炸弹补给
 }
 

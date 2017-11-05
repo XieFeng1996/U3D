@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //transform.Translate(Vector3.up * speed * Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.Space) && PropManager._instance.count > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && PropManager._instance.boomCount > 0)
         {
             Destroy(gameObject);
         }
@@ -55,7 +55,15 @@ public class Bullet : MonoBehaviour {
         }
         else
         {
-            if (other.gameObject.tag == "Hero" && !other.GetComponent<HeroHealth>().isDead) //如果打中的是玩家
+            if (other.gameObject.tag == "Shield")
+            {
+                if (other.gameObject.activeSelf == true)
+                {
+                    other.gameObject.transform.parent.SendMessage("Behit", 1);
+                    Destroy(this.gameObject); //如果碰撞到了则销毁此物体
+                }
+            }
+            else if (other.gameObject.tag == "Hero" && !other.GetComponent<HeroHealth>().isDead) //如果打中的是玩家
             {
                 other.gameObject.SendMessage("Behit", damage);  //则调用玩家身上的Behit 方法
                 Destroy(this.gameObject); //如果碰撞到了则销毁此物体

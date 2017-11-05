@@ -8,7 +8,7 @@ public enum GameState
 }
 public class GameMananger : MonoBehaviour
 {
-
+    public bool isWin = false;
     public Text scoreText;  //获取显示分数的组件
 
     public Sprite[] GameStateSprite;  //精灵数组，存放游戏继续和游戏暂停两个图标

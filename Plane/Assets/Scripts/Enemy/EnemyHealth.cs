@@ -46,11 +46,17 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && PropManager._instance.count > 0)
+        if (Input.GetKeyDown(KeyCode.S) && PropManager._instance.boomCount > 0)
         {
-            life = -1;
-            Behit(1);
-            //如果按下了空格键，并且炸弹数目大于0，则把敌人的生命设为-1，全部执行爆炸动画    
+            if (enemyType != EnemyType.bossEnemy)
+            {
+                life = -1;
+            }
+            else
+            {
+                life = gamedoing._instance.mobsLife3 / 5;
+            }
+            Behit(0);
         }
     }
 
@@ -85,6 +91,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else
         {
+            GameMananger._instance.isWin = true;
             gamedoing._instance.gradingRule();
             SceneManager.LoadScene("03");
         }
@@ -93,5 +100,23 @@ public class EnemyHealth : MonoBehaviour
     void Hited()
     {
         anim.SetBool("Hited", false);
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Shield")
+        {
+            if (enemyType != EnemyType.bossEnemy)
+            {
+                life = -1;
+                other.gameObject.transform.parent.SendMessage("Behit", 3);
+            }
+            else
+            {
+                life = gamedoing._instance.mobsLife3 / 10;
+                other.gameObject.transform.parent.SendMessage("Behit", 3);
+            }
+            Behit(0);
+        }
     }
 }

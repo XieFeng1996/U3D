@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPropsDrop : MonoBehaviour {
+public class EnemyPropsDrop : MonoBehaviour
+{
     [System.Serializable]
     public class Props
     {
@@ -25,7 +26,7 @@ public class EnemyPropsDrop : MonoBehaviour {
 
     private void GetNumberFormProbability()
     {
-        int RandomNumber = Random.Range(0, 1000);
+        int RandomNumber = Random.Range(0, 100);
 
         int calculate = 0;
 

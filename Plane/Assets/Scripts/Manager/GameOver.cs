@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-    public Text nowScoreText;
-    public Text highScoreText;
+    public Text tieText;
+    public Text scoreText;
+    public Button nextLevelText;
 
     // Use this for initialization
     void Start()
@@ -15,13 +16,22 @@ public class GameOver : MonoBehaviour
 
     public void showScore()
     {
-        int nowScore = GameMananger._instance.score;
-        int historyScore = PlayerPrefs.GetInt("historyHighScore", 0);
-        if (nowScore > historyScore)
+        if (GameMananger._instance.isWin)
         {
-            PlayerPrefs.SetInt("historyHighScore", nowScore);
+            tieText.text = "取 得 胜 利";
+
+            if (PlayerPrefs.GetInt("playerLevelChange", 0) < 2)
+            {
+                nextLevelText.gameObject.SetActive(true);
+            }
         }
-        highScoreText.text = historyScore.ToString();
-        this.nowScoreText.text = nowScore.ToString();
+        else
+        {
+            tieText.text = "通 关 失 败";
+            nextLevelText.gameObject.SetActive(false);
+        }
+
+        int nowScore = GameMananger._instance.score;
+        this.scoreText.text = nowScore.ToString();
     }
 }

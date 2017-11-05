@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C4908888-3AAE-61FA-192D-2B12DA874CF8}</ProjectGuid>
+    <ProjectGuid>{3CF9B0E8-F946-534A-8E07-990C0434C851}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -207,15 +207,17 @@
      <Compile Include="Assets\Scripts\Hero\HeroMainGun.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroMainWeapon.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroMovement.cs" />
+     <Compile Include="Assets\Scripts\Hero\HeroShield.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroSideGun.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroSideWeapon.cs" />
      <Compile Include="Assets\Scripts\Main\BeginPanel.cs" />
      <Compile Include="Assets\Scripts\Main\GuanQiaPanel.cs" />
      <Compile Include="Assets\Scripts\Main\nanduPanel.cs" />
+     <Compile Include="Assets\Scripts\Manager\BackToMain.cs" />
      <Compile Include="Assets\Scripts\Manager\GameMananger.cs" />
      <Compile Include="Assets\Scripts\Manager\GameOver.cs" />
+     <Compile Include="Assets\Scripts\Manager\NextLevel.cs" />
      <Compile Include="Assets\Scripts\Manager\PropManager.cs" />
-     <Compile Include="Assets\Scripts\Manager\QuitGame.cs" />
      <Compile Include="Assets\Scripts\Manager\Restart.cs" />
      <Compile Include="Assets\Scripts\Prop\Prop.cs" />
      <Compile Include="Assets\Scripts\Prop\PropSpawn.cs" />
@@ -283,7 +285,7 @@
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/Rui_Cao/Documents/GitHub/U3D/Plane/Assets/DOTween/DOTween.dll</HintPath>
+ <HintPath>G:/大四/第一学期/游戏综合实践II/项目/40/Assets/DOTween/DOTween.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

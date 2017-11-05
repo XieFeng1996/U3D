@@ -5,10 +5,23 @@ using UnityEngine;
 public class SmallEnemyWeapon : MonoBehaviour
 {
     public GunBase gun_Normal;
-
+    public bool isFire = false;
+    private float moveHeight;
     // Use this for initialization
     void Start()
     {
-        gun_Normal.openFire();
+        moveHeight = Screen.height / 200.0f;
+    }
+
+    void Update()
+    {
+        if (isFire)
+            return;
+
+        if (transform.position.y < moveHeight)
+        {
+            gun_Normal.openFire();
+            isFire = true;
+        }
     }
 }

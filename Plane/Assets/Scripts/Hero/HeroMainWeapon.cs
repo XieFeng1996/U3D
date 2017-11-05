@@ -100,6 +100,11 @@ public class HeroMainWeapon : MonoBehaviour
                 threeGunTime = resetThreeWeaponTime;
                 Destroy(other.gameObject);
             }
+            else if (prop.propType == PropType.Shield)  //如果是防护罩
+            {
+                PropManager._instance.addAShield();
+                Destroy(other.gameObject);
+            }
             else if (prop.propType == PropType.boom)  //如果是炸弹补给
             {
                 PropManager._instance.addAbomb();
