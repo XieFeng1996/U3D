@@ -9,12 +9,9 @@ public class HeroHealth : MonoBehaviour
     public bool isDead = false;
     public AudioClip destoryMusic;
 
-    private Animator anim;
-
     // Use this for initialization
     void Start()
     {
-        anim = GetComponent<Animator>();
         life = gamedoing._instance.playerAirLife;
     }
 
@@ -29,8 +26,8 @@ public class HeroHealth : MonoBehaviour
         if (life <= 0)
         {
             isDead = true;
-            anim.SetBool("Dead", true);   //开始播放爆炸动画
             AudioSource.PlayClipAtPoint(destoryMusic, transform.localPosition);
+            Dead();
         }
     }
 
@@ -41,8 +38,8 @@ public class HeroHealth : MonoBehaviour
             if (!other.GetComponent<EnemyHealth>().isDead)
             {
                 isDead = true;
-                anim.SetBool("Dead", true);
                 AudioSource.PlayClipAtPoint(destoryMusic, transform.localPosition);
+                Dead();
             }
         }
     }

@@ -19,13 +19,9 @@ public class EnemyHealth : MonoBehaviour
     public bool isDead = false;
     public AudioClip destoryMusic;
 
-    Animator anim;  //存放动画组件
-
     // Use this for initialization
     void Start()
     {
-        anim = GetComponent<Animator>(); //获取动画组件
-
         if (enemyType == EnemyType.smallEnemy)
         {
             life = gamedoing._instance.mobsLife1;
@@ -70,14 +66,10 @@ public class EnemyHealth : MonoBehaviour
         if (life <= 0)
         {
             isDead = true;
-            anim.SetBool("Dead", true);   //开始播放爆炸动画
             AudioSource.PlayClipAtPoint(destoryMusic, transform.localPosition);
             GameMananger._instance.addScore(score);
             gamedoing._instance.playerKillNumber++;
-        }
-        else
-        {
-            anim.SetBool("Hited", true);   //开始播放被击中动画
+            Dead();
         }
     }
 
@@ -95,11 +87,6 @@ public class EnemyHealth : MonoBehaviour
             gamedoing._instance.gradingRule();
             SceneManager.LoadScene("03");
         }
-    }
-
-    void Hited()
-    {
-        anim.SetBool("Hited", false);
     }
 
     public void OnTriggerEnter2D(Collider2D other)

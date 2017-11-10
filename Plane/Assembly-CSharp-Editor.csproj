@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{88841384-AF28-F4E6-9BB9-A6A5F397948D}</ProjectGuid>
+    <ProjectGuid>{6EBFF3E8-0536-3072-A216-BE596DB253A8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -133,7 +133,7 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
-     <None Include="Assets\NGUI\ReadMe - 3.11.4.txt" />
+     <None Include="Assets\NGUI\ReadMe - 3.9.9.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 2.shader" />
@@ -232,15 +232,15 @@
  <HintPath>D:/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>G:/大四/第一学期/游戏综合实践II/项目/40/Assets/DOTween/DOTween.dll</HintPath>
+ <HintPath>C:/Users/Rui_Cao/Desktop/Plane/Assets/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenEditor">
- <HintPath>G:/大四/第一学期/游戏综合实践II/项目/40/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ <HintPath>C:/Users/Rui_Cao/Desktop/Plane/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{3CF9B0E8-F946-534A-8E07-990C0434C851}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{C4908888-3AAE-61FA-192D-2B12DA874CF8}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

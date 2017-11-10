@@ -54,6 +54,9 @@ public class PropManager : MonoBehaviour
 
     void Update()
     {
+        if (hero == null)
+            return;
+
         //双枪图标更新
         float doubleGunTime = hero.GetComponent<HeroMainWeapon>().doubleGunTime;
         if (doubleGunTime > 0)
