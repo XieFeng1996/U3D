@@ -11,17 +11,24 @@ public class BeginPanel : MonoBehaviour
 	public Button Btn_Begin;
 	public GameObject Gameobject;
 
-	public GameObject resetPanel;
-	public Button Btn_reset;
 
-	public GameObject nanduPanel;
-	public Button Btn_1;
+
+	//public GameObject nanduPanel;
+	//public Button Btn_1;
 
 	public Button Btn_set;
 	public GameObject setPanel;
+    public GameObject teamPanel;
+    public Button Btn_team;
+    public Button Btn_reset;
+    
+    public Button Btn_close;
 
     public GameObject difficlutyPanel;
     public Button Btn_difficulty;
+    public Button Btn_easy;
+    public Button Btn_normal;
+    public Button Btn_difficult;
 
 
 
@@ -32,16 +39,27 @@ public class BeginPanel : MonoBehaviour
     void Start () 
 	{
 		Mytranform = this.GetComponent<RectTransform> ();
-		Btn_Begin = Mytranform.Find ("Button").GetComponent<Button> ();
+		//Btn_Begin = Mytranform.Find ("Button").GetComponent<Button> ();
 		Btn_Begin.onClick.AddListener (Onclick_Begin);
 		ifShow = true;
         ifDifShow = true;
         //Btn_reset = Mytranform.Find ("Btn_reset").GetComponent<Button> ();
-        Btn_reset.onClick.AddListener (Onclick_Btn_reset);
+        
 
-		Btn_1.onClick.AddListener (Onclick_Btn_1);
+
+
+		//Btn_1.onClick.AddListener (Onclick_Btn_1);
 		Btn_set.onClick.AddListener (Onclick_ShowSetPanel);
         Btn_difficulty.onClick.AddListener(Onclick_ShowDifficultyPanel);
+
+        Btn_team.onClick.AddListener(Onclick_Btn_team);
+        Btn_reset.onClick.AddListener(Onclick_Btn_reset);
+       
+        Btn_close.onClick.AddListener(Onclick_Btn_close);
+
+        Btn_easy.onClick.AddListener(Onclick_Btn_easy);
+        Btn_normal.onClick.AddListener(Onclick_Btn_normal);
+        Btn_difficult.onClick.AddListener(Onclick_Btn_difficult);
     }
 	
 	public void Onclick_Begin()
@@ -50,16 +68,40 @@ public class BeginPanel : MonoBehaviour
 		MyPanel.SetActive (false);
 	}
 
-	public void Onclick_Btn_reset()
+	public void Onclick_Btn_team()
 	{
-		resetPanel.SetActive (true);
+		teamPanel.SetActive (true);
 	}
 
-	public void Onclick_Btn_1()
+    public void Onclick_Btn_close()
+    {
+        teamPanel.SetActive(false);
+    }
+
+    public void Onclick_Btn_reset()
+    {
+        Debug.Log("reset");
+    }
+
+    public void Onclick_Btn_easy()
+    {
+        Debug.Log("easy");
+    }
+    public void Onclick_Btn_normal()
+    {
+        Debug.Log("normal");
+    }
+
+    public void Onclick_Btn_difficult()
+    {
+        Debug.Log("difficult");
+    }
+
+	/*public void Onclick_Btn_1()
 	{
 		nanduPanel.SetActive (true);
 		MyPanel.SetActive (false);
-	}
+	}*/
 
 	public void Onclick_ShowSetPanel()
 	{
