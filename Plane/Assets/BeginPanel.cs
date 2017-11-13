@@ -100,6 +100,7 @@ public class BeginPanel : MonoBehaviour
         test.text = "数据重置成功";
         test.gameObject.SetActive(true);
         PlayerPrefs.DeleteAll();
+
         //重新调用数据加载
         GameObject reset = GameObject.Find("Main Camera");
         DataStorage other = (DataStorage)reset.GetComponent(typeof(DataStorage));
