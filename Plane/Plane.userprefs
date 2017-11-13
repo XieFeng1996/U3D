@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{275234D3-97BB-A342-46E5-6F42190665E7}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GuanQiaPanel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Data/DataStorage.cs">
     <Files>
-      <File FileName="Assets/BeginPanel.cs" Line="81" Column="32" />
-      <File FileName="Assets/Scripts/Data/gamedoing.cs" Line="120" Column="72" />
-      <File FileName="Assets/Scripts/Data/DataStorage.cs" Line="388" Column="43" />
-      <File FileName="Assets/GuanQiaPanel.cs" Line="25" Column="9" />
-      <File FileName="Assets/GuanQiaPanel2.cs" Line="44" Column="6" />
-      <File FileName="Assets/GuanQiaPanel3.cs" Line="40" Column="28" />
+      <File FileName="Assets/BeginPanel.cs" Line="102" Column="33" />
+      <File FileName="Assets/Scripts/Data/gamedoing.cs" Line="164" Column="6" />
+      <File FileName="Assets/Scripts/Data/DataStorage.cs" Line="161" Column="40" />
+      <File FileName="Assets/GuanQiaPanel.cs" Line="94" Column="40" />
+      <File FileName="Assets/GuanQiaPanel2.cs" Line="52" Column="31" />
+      <File FileName="Assets/GuanQiaPanel3.cs" Line="47" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
