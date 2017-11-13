@@ -76,6 +76,7 @@ public class gamedoing : MonoBehaviour
                     mobsHurt3 = PlayerPrefs.GetInt("mobsHurt3_110", 0);
                 }
                 mobsGold3 = PlayerPrefs.GetInt("killGold4", 0);
+                print("玩家选择了关卡1");
                 break;
             case 1:        //关卡2
                 if (difficutyType == 0)
@@ -94,6 +95,7 @@ public class gamedoing : MonoBehaviour
                     mobsHurt3 = PlayerPrefs.GetInt("mobsHurt3_111", 0);
                 }
                 mobsGold3 = PlayerPrefs.GetInt("killGold5", 0);
+                print("玩家选择了关卡2");
                 break;
             case 2:        //关卡3
                 if (difficutyType == 0)
@@ -112,6 +114,7 @@ public class gamedoing : MonoBehaviour
                     mobsHurt3 = PlayerPrefs.GetInt("mobsHurt3_112", 0);
                 }
                 mobsGold3 = PlayerPrefs.GetInt("killGold6", 0);
+                print("玩家选择了关卡3");
                 break;
         }
     }
@@ -132,6 +135,7 @@ public class gamedoing : MonoBehaviour
                 mobsHurt2 = PlayerPrefs.GetInt("mobsHurt1_104", 0);
                 mobsGold2 = PlayerPrefs.GetInt("killGold2", 0);
 
+                print("玩家选择了简单难度");
                 break;
             case 1:      //正常难度
                 mobsLife1 = PlayerPrefs.GetInt("mobsLife2_101", 0);
@@ -141,6 +145,7 @@ public class gamedoing : MonoBehaviour
                 mobsLife2 = PlayerPrefs.GetInt("mobsLife2_104", 0);
                 mobsHurt2 = PlayerPrefs.GetInt("mobsHurt2_104", 0);
                 mobsGold2 = PlayerPrefs.GetInt("killGold2", 0);
+                print("玩家选择了正常难度");
                 break;
             case 2:      //困难难度
                 mobsLife1 = PlayerPrefs.GetInt("mobsLife3_101", 0);
@@ -150,6 +155,7 @@ public class gamedoing : MonoBehaviour
                 mobsLife2 = PlayerPrefs.GetInt("mobsLife3_104", 0);
                 mobsHurt2 = PlayerPrefs.GetInt("mobsHurt3_104", 0);
                 mobsGold2 = PlayerPrefs.GetInt("killGold2", 0);
+                print("玩家选择了困难难度");
                 break;
         }
 
@@ -192,10 +198,11 @@ public class gamedoing : MonoBehaviour
         int playerAir1Hurt = PlayerPrefs.GetInt("bulletHave1", 0);
         int playerAir2Hurt = PlayerPrefs.GetInt("bulletHave2", 0);
         int playerAir3Hurt = PlayerPrefs.GetInt("bulletHave3", 0);
+
         //飞机的子弹ID(默认都为0)
-        int bulletId1 = 0;
-        int bulletId2 = 0;
-        int bulletId3 = 0;
+        int bulletId1;
+        int bulletId2;
+        int bulletId3;
 
         if (playerAir1Hurt == 1)
         {

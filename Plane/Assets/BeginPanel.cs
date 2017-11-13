@@ -35,6 +35,11 @@ public class BeginPanel : MonoBehaviour
     public GameObject MyPanel;
 	public bool ifShow;
     public bool ifDifShow;
+
+    public Text test;
+    //延时
+    private float timer = 2.0f;
+
     // Use this for initialization
     void Start () 
 	{
@@ -60,9 +65,20 @@ public class BeginPanel : MonoBehaviour
         Btn_easy.onClick.AddListener(Onclick_Btn_easy);
         Btn_normal.onClick.AddListener(Onclick_Btn_normal);
         Btn_difficult.onClick.AddListener(Onclick_Btn_difficult);
+
+        //初始隐藏文字
+        test.gameObject.SetActive(false);
     }
-	
-	public void Onclick_Begin()
+     void Update()
+    {
+        timer -= Time.deltaTime;
+        if(timer<=0){
+            test.gameObject.SetActive(false);
+            timer = 2.0f;
+        }
+    }
+
+    public void Onclick_Begin()
 	{
 		Gameobject.SetActive (true);
 		MyPanel.SetActive (false);
@@ -81,20 +97,38 @@ public class BeginPanel : MonoBehaviour
     public void Onclick_Btn_reset()
     {
         Debug.Log("reset");
+        test.text = "数据重置成功";
+        test.gameObject.SetActive(true);
+        PlayerPrefs.DeleteAll();
+
+        //重新调用数据加载
+        GameObject reset = GameObject.Find("Main Camera");
+        DataStorage other = (DataStorage)reset.GetComponent(typeof(DataStorage));
+        other.returnInitData();
+
     }
 
     public void Onclick_Btn_easy()
     {
         Debug.Log("easy");
+        test.text = "你选择了简单难度";
+        test.gameObject.SetActive(true);
+        PlayerPrefs.SetInt("playChangeDifficuty", 0);
     }
     public void Onclick_Btn_normal()
     {
         Debug.Log("normal");
+        test.text = "你选择了正常难度";
+        test.gameObject.SetActive(true);
+        PlayerPrefs.SetInt("playChangeDifficuty", 1);
     }
 
     public void Onclick_Btn_difficult()
     {
         Debug.Log("difficult");
+        test.text = "你选择了困难难度";
+        test.gameObject.SetActive(true);
+        PlayerPrefs.SetInt("playChangeDifficuty", 2);
     }
 
 	/*public void Onclick_Btn_1()

@@ -1,13 +1,19 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BeginPanel.cs">
+﻿<Properties StartupConfiguration="{275234D3-97BB-A342-46E5-6F42190665E7}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GuanQiaPanel.cs">
     <Files>
-      <File FileName="Assets\nanduPanel.cs" Line="16" Column="2" />
-      <File FileName="Assets\BeginPanel.cs" Line="65" Column="18" />
+      <File FileName="Assets/BeginPanel.cs" Line="81" Column="32" />
+      <File FileName="Assets/Scripts/Data/gamedoing.cs" Line="120" Column="72" />
+      <File FileName="Assets/Scripts/Data/DataStorage.cs" Line="388" Column="43" />
+      <File FileName="Assets/GuanQiaPanel.cs" Line="25" Column="9" />
+      <File FileName="Assets/GuanQiaPanel2.cs" Line="44" Column="6" />
+      <File FileName="Assets/GuanQiaPanel3.cs" Line="40" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Plane PreferredExecutionTarget="Unity.Editor" />
 </Properties>

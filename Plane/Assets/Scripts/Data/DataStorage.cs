@@ -19,42 +19,42 @@ public class DataStorage : MonoBehaviour {
     //飞机1名字
     private static string airplaneName1 = "芝麻";
 	//飞机1生命
-    private static int airplaneLife1 = 50;
+    private static int airplaneLife1 = 200;
 
 	//飞机2ID
     private static int airplaneId2 = 0;
 	//飞机2名字
 	private static string airplaneName2 = "麻瓜";
 	//飞机2生命
-    private static int airplaneLife2 = 100;
+    private static int airplaneLife2 = 500;
 
 	//飞机3ID
     private static int airplaneId3 = 0;
 	//飞机3名字
 	private static string airplaneName3 = "西瓜";
 	//飞机3生命
-    private static int airplaneLife3 = 200;
+    private static int airplaneLife3 = 800;
                  //子弹数据
     //子弹1ID
     private static int bulletId1 = 1;
     //是否拥有子弹1
     private int bulletHave1 = 1;
     //子弹1伤害
-    private static int bulletHurt1 = 5;
+    private static int bulletHurt1 = 20;
 
 	//子弹2ID
     private static int bulletId2 = 2;
 	//是否拥有子弹2
 	private int bulletHave2 = 0;
 	//子弹2伤害
-    private static int bulletHurt2 = 10;
+    private static int bulletHurt2 = 30;
 
 	//子弹3ID
     private static int bulletId3 = 3;
 	//是否拥有子弹3
 	private int bulletHave3 = 0;
 	//子弹3伤害
-    private static int bulletHurt3 = 20;
+    private static int bulletHurt3 = 40;
                   //关卡数据
     //关卡1
     private static int levelId1 = 1;
@@ -280,6 +280,12 @@ public class DataStorage : MonoBehaviour {
         PlayerPrefs.SetInt("levelDiffcultyId1_5",levelDiffcultyId1_5);//关卡1高级难度
         PlayerPrefs.SetInt("starsNum1_6",starsNum1_6);//关卡1高级难度星星数
 
+            //测试体  ---------成功
+       /* PlayerPrefs.SetInt("starsNum1_2",3);//关卡1初级难度星星数
+        PlayerPrefs.SetInt("starsNum1_4",2);//关卡1初级难度星星数
+        PlayerPrefs.SetInt("starsNum1_6",1);//关卡1初级难度星星数
+        */
+
         PlayerPrefs.SetInt("levelId2",levelId2);//关卡2ID
         PlayerPrefs.SetString("levelIdName2",levelIdName2);//关卡2名字
         PlayerPrefs.SetInt("levelDiffcultyId2_1",levelDiffcultyId2_1);//关卡2初级难度
@@ -373,21 +379,10 @@ public class DataStorage : MonoBehaviour {
         print("数据储存完成");
 	}
     public void returnInitData(){     //重置数据函数
+        print("数据重写完成");
         isFirstDataStorage = 0;
         initDataStorage();
     }
-    public void changeDifficuty(){    //修改难度
-        int changeType = PlayerPrefs.GetInt("playChangeDifficuty",0);          //获取玩家的游戏难度
-		 /*
-		  * 1.在这里写你的按钮监听事件,修改int的值
-		  * 2.int值说明:
-		  *   简单 -- 0
-		  *   中等 -- 1
-		  *   苦难 -- 2
-         */
-        //修改玩家的游戏难度
-        PlayerPrefs.SetInt("playChangeDifficuty",changeType);
-	}
     void Start(){
         //判断是否需要初始化
         int isFirst;
