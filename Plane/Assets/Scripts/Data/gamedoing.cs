@@ -419,19 +419,13 @@ public class gamedoing : MonoBehaviour
     void Awake()
     {
         _instance = this;
-    }
-
-    void Start()
-    {
-        //获取怪物属性
+		//获取怪物属性
         playerchangeDifficutyType();
         //获得玩家的飞机和飞机伤害
         getPlayerAirLife();
         getPlayerAirHurt();
         //设置关卡数据
         setMobsShowing();
-
-        //评分规则(在玩家击杀BOSS后调用此函数)
-        //gradingRule(playerDifficuty);
     }
+
 }
