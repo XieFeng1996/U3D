@@ -287,7 +287,7 @@
  <HintPath>D:/unity3d2017/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/sydneyhwang/Desktop/11.11晚/Plane/Assets/DOTween/DOTween.dll</HintPath>
+ <HintPath>C:/Users/sydneyhwang/Desktop/U3D/Plane/Assets/DOTween/DOTween.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

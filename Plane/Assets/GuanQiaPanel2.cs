@@ -8,12 +8,13 @@ public class GuanQiaPanel2 : MonoBehaviour
 
     public GameObject GamePanel;
     public Button Btn_level2;
-    public Button Btn_back2;
+    public Button Btn_back;
 
 
-    public Button Btn_left2;
-    public Button Btn_right2;
+    public Button Btn_left;
+    public Button Btn_right;
     public GameObject BeginPanel;
+
     public GameObject LevelPanel;
     public GameObject Level2Panel;
     public GameObject Level3Panel;
@@ -30,9 +31,9 @@ public class GuanQiaPanel2 : MonoBehaviour
     void Start()
     {
         Btn_level2.onClick.AddListener(Onclick_Btn_level2);
-        Btn_left2.onClick.AddListener(Onclick_Btn_left2);
-        Btn_right2.onClick.AddListener(Onclick_Btn_right2);
-        Btn_back2.onClick.AddListener(Onclick_Btn_back2);
+        Btn_left.onClick.AddListener(Onclick_Btn_left);
+        Btn_right.onClick.AddListener(Onclick_Btn_right);
+        Btn_back.onClick.AddListener(Onclick_Btn_back);
         //Ico.sprite = Resources.Load<Sprite>("123");
         showDifferNumberStar();
     }
@@ -101,21 +102,24 @@ public class GuanQiaPanel2 : MonoBehaviour
         SceneManager.LoadScene("02");
     }
 
-    public void Onclick_Btn_left2()
+    public void Onclick_Btn_left()
     {
-        Debug.Log("left2");
+        //Debug.Log("left");
+        Level2Panel.SetActive(false);
         LevelPanel.SetActive(true);
     }
 
-    public void Onclick_Btn_right2()
+    public void Onclick_Btn_right()
     {
-        Debug.Log("right2");
+        //Debug.Log("right");
+        Level2Panel.SetActive(false);
         Level3Panel.SetActive(true);
     }
 
-    public void Onclick_Btn_back2()
+
+    public void Onclick_Btn_back()
     {
-        Level2Panel.SetActive(true);
+        Level2Panel.SetActive(false);
         BeginPanel.SetActive(true);
     }
 

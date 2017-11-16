@@ -19,10 +19,14 @@ public class BeginPanel : MonoBehaviour
 	public Button Btn_set;
 	public GameObject setPanel;
     public GameObject teamPanel;
+    public GameObject rulePanel;
+    
     public Button Btn_team;
     public Button Btn_reset;
+    public Button Btn_rule;
     
     public Button Btn_close;
+    public Button Btn_close2;
 
     public GameObject difficlutyPanel;
     public Button Btn_difficulty;
@@ -59,9 +63,11 @@ public class BeginPanel : MonoBehaviour
 
         Btn_team.onClick.AddListener(Onclick_Btn_team);
         Btn_reset.onClick.AddListener(Onclick_Btn_reset);
-       
-        Btn_close.onClick.AddListener(Onclick_Btn_close);
+        Btn_rule.onClick.AddListener(Onclick_Btn_rule);
 
+        Btn_close.onClick.AddListener(Onclick_Btn_close);
+        Btn_close2.onClick.AddListener(Onclick_Btn_close2);
+       
         Btn_easy.onClick.AddListener(Onclick_Btn_easy);
         Btn_normal.onClick.AddListener(Onclick_Btn_normal);
         Btn_difficult.onClick.AddListener(Onclick_Btn_difficult);
@@ -93,6 +99,8 @@ public class BeginPanel : MonoBehaviour
     {
         teamPanel.SetActive(false);
     }
+
+   
 
     public void Onclick_Btn_reset()
     {
@@ -130,12 +138,15 @@ public class BeginPanel : MonoBehaviour
         test.gameObject.SetActive(true);
         PlayerPrefs.SetInt("playChangeDifficuty", 2);
     }
+    public void Onclick_Btn_rule()
+    {
+        rulePanel.SetActive(true);
+    }
 
-	/*public void Onclick_Btn_1()
-	{
-		nanduPanel.SetActive (true);
-		MyPanel.SetActive (false);
-	}*/
+    public void Onclick_Btn_close2()
+    {
+        rulePanel.SetActive(false);
+    }
 
 	public void Onclick_ShowSetPanel()
 	{
